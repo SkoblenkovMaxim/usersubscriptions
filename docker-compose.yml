@@ -1,0 +1,24 @@
+services:
+  usersubscriptions:
+    build:
+      context: .
+    image: usersubscriptions-image
+    container_name: usersubscriptions-container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db_usersubscriptions
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db_usersubscriptions:5432/db_usersubscriptions
+      - SPRING_DATASOURCE_POSTGRES_USER=postgres
+      - SPRING_DATASOURCE_POSTGRES_PASSWORD=12345
+
+  db_usersubscriptions:
+    image:
+    container_name: db_usersubscriptions
+    ports:
+      - "6541:5432"
+    environment:
+      - POSTGRES_DB=db_usersubscriptions
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
