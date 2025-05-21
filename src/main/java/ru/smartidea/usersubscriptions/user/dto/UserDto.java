@@ -4,9 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.smartidea.usersubscriptions.subscription.dto.SubscriptionDto;
-
-import java.util.List;
 
 @Builder
 @AllArgsConstructor
@@ -15,5 +12,4 @@ import java.util.List;
 public class UserDto {
     private String name;
     private String email;
-//    List<Long> subscriptions;
 }
